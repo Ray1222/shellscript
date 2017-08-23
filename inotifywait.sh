@@ -1,0 +1,1 @@
+inotifywait -m -r -e modify,move,create,delete /tmp/a |while read PATH ACTION FILE; do echo "$HOSTNAME $PATH $ACTION $FILE" | /usr/bin/mutt -s "Notify:$HOSTNAME $PATH $ACTION $FILE" "ccyen@gate.sinica.edu.tw" ;done &
