@@ -1,8 +1,8 @@
 #!/bin/sh
 #keli Aide report by ljr1222
 DATE=`date +%Y-%m-%d`
-REPORT="Aide-Report-ktli.apps.sinica.edu.tw-"$DATE
-echo "Aide-Report-ktli.apps.sinica.edu.tw `date`" > /tmp/$REPORT
+REPORT="Aide-Report-ktli.apps.XXX.edu.tw-"$DATE
+echo "Aide-Report-ktli.apps.XXX.edu.tw `date`" > /tmp/$REPORT
 /usr/sbin/aide -c aide-ktli.conf >> /tmp/$REPORT
 echo "****************DONE******************" >> /tmp/$REPORT
 
@@ -24,9 +24,9 @@ ALL=`cat /tmp/$REPORT|sed -n '/Total/,/Changed files/p'|sed ':a;N;$!ba;s/\n/ /g'
 fi
 echo $ALL
 cat << _EOT_ | \
-        /usr/sbin/smtp-cli --server=gate.sinica.edu.tw \
-                   --from=sysinfo@gate.sinica.edu.tw \
-                   --to=ljr1222@gate.sinica.edu.tw \
+        /usr/sbin/smtp-cli --server=XXX.edu.tw \
+                   --from=sysinfo@XXX.edu.tw \
+                   --to=ljr1234@XX.edu.tw \
                    --subject="$REPORT $ALL" \
                    --body-plain=/tmp/$REPORT
 
